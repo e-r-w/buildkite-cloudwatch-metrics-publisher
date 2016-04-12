@@ -28,6 +28,11 @@ Parameters:
     Description: How often to update metrics
     Type: String
     Default: "30s"
+    
+  ImageId:
+    Description: The base AMI id to use
+    Type: String
+    Default: "ami-8fcee4e5"  
 
 
 
@@ -89,7 +94,7 @@ Resources:
     Properties:
       InstanceMonitoring: true
       SecurityGroups: [ $(SecurityGroup) ]
-      ImageId: ami-8fcee4e5
+      ImageId: $(ImageId)
       InstanceType: t2.nano
       IamInstanceProfile: $(InstanceProfile)
       KeyName: $(KeyName)
